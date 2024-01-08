@@ -50,10 +50,6 @@ class NFCActivity : AppCompatActivity(), NfcAdapter.ReaderCallback {
 
     override fun onTagDiscovered(tag: Tag?) {
         val id: ByteArray? = tag?.id
-        val nfc = findViewById<TextView>(R.id.tvNFCContent)
-        runOnUiThread {
-            nfc.text = getHex(id!!)
-        }
         Log.w("TAG", "onTagDiscovered: $id")
         Log.w("TAG", "Tag ID (hex): ${getHex(id!!)} \n")
         Log.w("TAG", "Tag ID (dec): ${getDec(id)} \n")
