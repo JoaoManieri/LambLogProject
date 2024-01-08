@@ -1,14 +1,20 @@
 package com.br.manieri.lamblog
 
+import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.experimental.and
 
 class NFCActivity : AppCompatActivity(), NfcAdapter.ReaderCallback {
+
+    companion object {
+        var idDiscovery = ""
+    }
 
     private var nfcAdapter: NfcAdapter? = null
 
@@ -50,9 +56,14 @@ class NFCActivity : AppCompatActivity(), NfcAdapter.ReaderCallback {
 
     override fun onTagDiscovered(tag: Tag?) {
         val id: ByteArray? = tag?.id
+        idDiscovery = getHex(id!!)
         Log.w("TAG", "onTagDiscovered: $id")
-        Log.w("TAG", "Tag ID (hex): ${getHex(id!!)} \n")
         Log.w("TAG", "Tag ID (dec): ${getDec(id)} \n")
+
+        val intent = Intent(this, AnimalActivity::class.java)
+        //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        startActivity(intent)
+
     }
 
     override fun onPause() {

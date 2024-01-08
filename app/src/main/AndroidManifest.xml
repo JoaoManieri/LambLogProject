@@ -26,7 +26,7 @@
 
         <activity
             android:name=".NFCActivity"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <!-- NFC -->
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
@@ -36,6 +36,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".AnimalActivity" android:exported="false" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

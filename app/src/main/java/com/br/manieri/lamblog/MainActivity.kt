@@ -13,8 +13,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val nfc = findViewById<ImageView>(R.id.btnNFC)
+        val animal = findViewById<ImageView>(R.id.bnt_new_animal)
 
         nfc.setOnClickListener {
+            val intent = Intent(this, NFCActivity::class.java)
+            startActivity(intent)
+        }
+
+        animal.setOnClickListener {
             val intent = Intent(this, NFCActivity::class.java)
             startActivity(intent)
         }

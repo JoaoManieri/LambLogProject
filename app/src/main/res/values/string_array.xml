@@ -1,0 +1,12 @@
+<resources>
+    <string-array name="times_string_array">
+        <item>Anos</item>
+        <item>Meses</item>
+        <item>Semanas</item>
+        <item>Dias</item>
+    </string-array>
+    <string-array name="size_string_array">
+        <item>Kg</item>
+        <item>g</item>
+    </string-array>
+</resources>
